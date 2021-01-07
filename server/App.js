@@ -2,6 +2,8 @@ const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
 const { Worker, isMainThread, parentPort } = require('worker_threads');
+const mongoose = require('mongoose');
+
 
 const port = process.env.PORT || 4001;
 const index = require("./routes/index");
