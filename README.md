@@ -1,5 +1,5 @@
 # iceBreaker.io
-Backend for a service which matches like-minded strangers based on real-time location and similar interests
+(In progress) Backend for a service which matches like-minded strangers based on real-time location and similar interests - Uses Node.js worker threads to delegate requests for each location
 
 ## 
 1. Create user profile with email and password : Authentication and authorization using JWT
