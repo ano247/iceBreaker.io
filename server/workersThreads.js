@@ -1,4 +1,5 @@
 const { parentPort } = require('worker_threads');
+const mongoose = require('mongoose')
 
 activeUsers = {}
 
@@ -22,6 +23,13 @@ parentPort.on('message', ([event, ...args]) => {
 
 const runMatching = () => {
     // match stuff and update match list of active users
+
+    //get the details of all the users in that location( matching algorithm will come later)
+
+    const idList = []
+
+
+
     notifyUsers();
 }
 

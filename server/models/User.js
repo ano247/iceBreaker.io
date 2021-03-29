@@ -19,10 +19,16 @@ const userSchema = new mongoose.Schema({
         max: 1024,
         min: 6
     },
-    date: {
-        type: Date,
-        default: Date.now
-    }
+    gender: { type: String },
+    dateOfBirth: { type: Date, required: true },
+    knownAs: { type: String },
+    photos: [String],
+    interests: { type: String, default: 'No description...' },
+    lastActive: { type: Date },
+    introduction: { type: String, default: 'No description...' },
+    lookingFor: { type: String, default: 'No description...' }
+
 });
 
-module.exports = mongoose.model('User', userSchema);
+
+module.exports = mongoose.model('users', userSchema);
