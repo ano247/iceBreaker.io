@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+    id: {
+        Number
+    },
     name: {
         type: String,
         required: true,
@@ -23,7 +26,12 @@ const userSchema = new mongoose.Schema({
     dateOfBirth: { type: Date, required: true },
     knownAs: { type: String },
     photos: [String],
-    interests: { type: String, default: 'No description...' },
+    favAuthor: [String],
+    favBook: [String],
+    favFilm: [String],
+    favDirector: [String],
+    favBand: [String],
+    favCuisine: [String],
     lastActive: { type: Date },
     introduction: { type: String, default: 'No description...' },
     lookingFor: { type: String, default: 'No description...' }

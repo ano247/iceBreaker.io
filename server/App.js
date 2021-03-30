@@ -15,12 +15,20 @@ app.use(cors)
 app.use(express.json())
 
 app.use(routes)
-//write code to get user info into db beforehand. Registering?
+
 const server = http.createServer(app);
 
 const io = socketIo(server);
 
 const workerThreadByLocation = {}
+
+//can use socket-io-jwt-auth instead
+
+/*io.use((socket, next)){
+    const token = socket.handshake.auth.token;
+    if(isValid(token)) next();
+    socket.on('error, (err) => throw new Error(err))
+} */
 
 io.on("connection", (socket) => {
     console.log("New client connected");
@@ -36,9 +44,6 @@ io.on("connection", (socket) => {
 
         workerForUserLocation.postMessage(['join', clientId, socket])
 
-        socket.on("disconnect", () => {
-            console.log("Client disconnected");
-        });
     });
 })
 

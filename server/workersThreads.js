@@ -1,7 +1,7 @@
 const { parentPort } = require('worker_threads');
 const mongoose = require('mongoose')
 
-activeUsers = {}
+activeUsers = {} //maps from clientId to an object containing 
 
 parentPort.on('message', ([event, ...args]) => {
     switch (event) {
@@ -11,9 +11,9 @@ parentPort.on('message', ([event, ...args]) => {
                 socket: socket,
                 matchList: activeUsers[clientId]['matchList'] || []
             }
-            runMatching()
+            runMatching(clientId)
             break
-        case 'leave':
+        case 'disconnect':
             activeUsers.delete(args[0])
             break
         default:
@@ -21,14 +21,23 @@ parentPort.on('message', ([event, ...args]) => {
     }
 })
 
-const runMatching = () => {
+const runMatching = (clientId) => {
     // match stuff and update match list of active users
 
-    //get the details of all the users in that location( matching algorithm will come later)
+    //get details of new user
+    const newInfo = {}
 
-    const idList = []
+    //get the details of all the users in that location
+    const usersInfo = []
 
+    const score = 0
+    const threshold = 5
 
+    const matches = []
+
+    usersInfo.forEach(function (user) {
+
+    })
 
     notifyUsers();
 }

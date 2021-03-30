@@ -53,8 +53,9 @@ function login(req, res) {
 
     //create and assign a token
     const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-    res.header('auth-token', token).send(token);
+    const savedToken = await User.save({ id: token })
 
+    res.header('auth-token', token).send(token);
 }
 
 module.exports = { register, login }
