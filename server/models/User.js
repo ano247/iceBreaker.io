@@ -26,13 +26,14 @@ const userSchema = new mongoose.Schema({
     dateOfBirth: { type: Date, required: true },
     knownAs: { type: String },
     photos: [String],
-    favAuthor: [String],
-    favBook: [String],
-    favFilm: [String],
-    favDirector: [String],
-    favBand: [String],
-    favCuisine: [String],
-    lastActive: { type: Date },
+    interests: {
+        favAuthor: [String],
+        favBook: [String],
+        favFilm: [String],
+        favDirector: [String],
+        favBand: [String],
+        favCuisine: [String],
+    },
     introduction: { type: String, default: 'No description...' },
     lookingFor: { type: String, default: 'No description...' }
 

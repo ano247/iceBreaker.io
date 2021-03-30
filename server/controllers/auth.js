@@ -4,7 +4,6 @@ const { registerValidation, loginValidation } = require('./utilities/validation'
 const bcrypt = require('bcryptjs');
 
 function register(req, res) {
-
     //validate
     const { error } = registerValidation(req.body);
     if (error)

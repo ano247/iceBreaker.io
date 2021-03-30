@@ -1,4 +1,6 @@
-function getInfo() {
+const Users = require('../models/User');
+function getInfo(req, res) {
+    const userId = req._id;
 
 }
-export default getInfo;
+module.exports = getInfo;
